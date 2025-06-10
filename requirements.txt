@@ -1,0 +1,4 @@
+Flask==3.0.3
+pyrebase4==4.8.0
+pycryptodome==3.20.0
+python-dotenv==1.0.1
