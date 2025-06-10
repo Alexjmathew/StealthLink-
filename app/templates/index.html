@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to StealthLink</h1>
+<p>Secure, encrypted, and vanishing messages.</p>
+{% if session.user %}
+    <a href="{{ url_for('main.chat') }}" class="btn btn-primary">Go to Chat</a>
+{% else %}
+    <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Login</a>
+    <a href="{{ url_for('auth.register') }}" class="btn btn-secondary">Register</a>
+{% endif %}
+{% endblock %}
