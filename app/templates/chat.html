@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Chat</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="receiver_id" class="form-label">Recipient ID</label>
+        <input type="text" class="form-control" id="receiver_id" name="receiver_id" required>
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="ttl" class="form-label">TTL (seconds, optional)</label>
+        <input type="number" class="form-control" id="ttl" name="ttl">
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+<h3>Messages</h3>
+<ul class="list-group mt-3">
+    {% for msg in messages %}
+        <li class="list-group-item">
+            <strong>{{ msg.sender_id }}</strong> to <strong>{{ msg.receiver_id }}</strong>: {{ msg.message }}
+            <br><small>{{ msg.timestamp }}</small>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
